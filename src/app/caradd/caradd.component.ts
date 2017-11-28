@@ -32,7 +32,7 @@ export class CaraddComponent implements OnInit {
 
   onSubmit() {
     this.car = new Car(this.brand, this.model, this.displacment, this.engineType, this.transmissionType, this.dealerId, this.photoLink);
-    this.http.post('http://localhost:8080/cars', this.car).subscribe((data) => {
+    this.http.post('http://localhost:8080/dealers', this.car).subscribe((data) => {
     });
 
   }
