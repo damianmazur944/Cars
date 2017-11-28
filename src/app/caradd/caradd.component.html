@@ -1,0 +1,49 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="brand">Brand</label>
+      <input type="text" class="form-control" id="brand" placeholder="Brand" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="model">Model</label>
+      <input type="text" class="form-control" id="model" placeholder="Model" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="displacment">Displacment [cc]</label>
+    <input type="number" class="form-control" id="displacment" placeholder="Displacment" required>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+  </div>
+    <div class="form-group col-md-4">
+      <label for="engineType">Engine Type</label>
+      <select id="engineType" class="form-control">
+        <option selected>Choose...</option>
+        <option value="R3">R3</option>
+        <option value="R4">R4</option>
+        <option value="R6">R6</option>
+        <option value="V6">V6</option>
+        <option value="V8">V8</option>
+        <option value="V12">V12</option>
+      </select>
+    </div>
+  <div class="form-group col-md-4">
+    <label for="transmissionType">Transmission Type</label>
+    <select id="transmissionType" class="form-control">
+      <option selected>Choose...</option>
+      <option value="MANUAL">MANUAL</option>
+      <option value="AUTOMATIC">AUTOMATIC</option>
+      <option value="SEMIAUTO">SEMIAUTO</option>
+    </select>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="dealer">Dealer</label>
+    <select id="dealer" class="form-control">
+      <option selected>Choose...</option>
+      <option *ngFor="let dealer of dealers" value={{dealer.id}}>{{dealer.name}} + {{dealer.surname}}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
