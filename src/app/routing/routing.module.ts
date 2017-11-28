@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Router, RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {CarListComponent} from '../car-list/car-list.component';
 import {CaraddComponent} from '../caradd/caradd.component';
 

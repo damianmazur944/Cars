@@ -1,49 +1,49 @@
-<form>
-  <div class="form-row">
+<form (ngSubmit)="onSubmit()">
+  <div class=" form-row">
     <div class="form-group col-md-6">
       <label for="brand">Brand</label>
-      <input type="text" class="form-control" id="brand" placeholder="Brand" required>
+      <input [(ngModel)]="brand" type="text" class="form-control" id="brand" name = "brand" placeholder="Brand" required>
     </div>
     <div class="form-group col-md-6">
       <label for="model">Model</label>
-      <input type="text" class="form-control" id="model" placeholder="Model" required>
+      <input [(ngModel)]="model" type="text" class="form-control" id="model" name = "model" placeholder="Model" required>
     </div>
   </div>
   <div class="form-group">
     <label for="displacment">Displacment [cc]</label>
-    <input type="number" class="form-control" id="displacment" placeholder="Displacment" required>
+    <input [(ngModel)]="displacment" type="number" class="form-control" id="displacment" name = "displacment" placeholder="Displacment" required>
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+    <label for="photoLink">Photo URL</label>
+    <input [(ngModel)]="photoLink" type="text" class="form-control" id="photoLink" name = "photoLink"  placeholder="Apartment, studio, or floor" required>
   </div>
-    <div class="form-group col-md-4">
-      <label for="engineType">Engine Type</label>
-      <select id="engineType" class="form-control">
-        <option selected>Choose...</option>
-        <option value="R3">R3</option>
-        <option value="R4">R4</option>
-        <option value="R6">R6</option>
-        <option value="V6">V6</option>
-        <option value="V8">V8</option>
-        <option value="V12">V12</option>
-      </select>
-    </div>
+  <div class="form-group col-md-4">
+    <label for="engineType">Engine Type</label>
+    <select id="engineType" class="form-control" [(ngModel)]="engineType" name = "engineType">
+      <option selected>Choose...</option>
+      <option [ngValue]="R3" value="R3">R3</option>
+      <option [ngValue]="R4" value="R4">R4</option>
+      <option [ngValue]="R6" value="R6">R6</option>
+      <option [ngValue]="V6" value="V6">V6</option>
+      <option [ngValue]="V8" value="V8">V8</option>
+      <option [ngValue]="V12" value="V12">V12</option>
+    </select>
+  </div>
   <div class="form-group col-md-4">
     <label for="transmissionType">Transmission Type</label>
-    <select id="transmissionType" class="form-control">
+    <select id="transmissionType" class="form-control" [(ngModel)]="transmissionType" name ="transmissionType">
       <option selected>Choose...</option>
-      <option value="MANUAL">MANUAL</option>
-      <option value="AUTOMATIC">AUTOMATIC</option>
-      <option value="SEMIAUTO">SEMIAUTO</option>
+      <option [ngValue]="MANUAL" value="MANUAL">MANUAL</option>
+      <option [ngValue]="AUTOMATIC" value="AUTOMATIC">AUTOMATIC</option>
+      <option [ngValue]="SEMIAUTO" value="SEMIAUTO">SEMIAUTO</option>
     </select>
   </div>
   <div class="form-group col-md-4">
     <label for="dealer">Dealer</label>
-    <select id="dealer" class="form-control">
+    <select id="dealer" class="form-control" [(ngModel)]="dealerId" name="dealer">
       <option selected>Choose...</option>
-      <option *ngFor="let dealer of dealers" value={{dealer.id}}>{{dealer.name}} + {{dealer.surname}}</option>
+      <option *ngFor="let dealer of dealers" [ngValue]="dealer.id" value={{dealer.id}}>{{dealer.name}} {{dealer.surname}}</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-success">Save car</button>
 </form>

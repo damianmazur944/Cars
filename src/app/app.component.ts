@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +8,16 @@ import {HttpClient} from '@angular/common/http';
 export class AppComponent {
 
 
+}
+
+export class Car {
+  constructor(private brand: string,
+              private model: string,
+              private displacment: number,
+              private engineType: string,
+              private transmissionType: string,
+              private dealer: number,
+              private photoLink: string) {
+  }
 }
 
