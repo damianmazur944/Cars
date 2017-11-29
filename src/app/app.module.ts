@@ -9,6 +9,7 @@ import {RoutingModule} from './routing/routing.module';
 import {FormsModule} from '@angular/forms';
 import { CaraddComponent } from './caradd/caradd.component';
 import { DealeraddComponent } from './dealeradd/dealeradd.component';
+import { DealerlistComponent } from './dealerlist/dealerlist.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DealeraddComponent } from './dealeradd/dealeradd.component';
     AppComponent,
     CarListComponent,
     CaraddComponent,
-    DealeraddComponent
+    DealeraddComponent,
+    DealerlistComponent
   ],
   imports: [
     BrowserModule,

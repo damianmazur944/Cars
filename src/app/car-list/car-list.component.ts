@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-car-list',
@@ -8,14 +9,26 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CarListComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
   }
+
   cars;
+  dealerId;
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/cars').subscribe(data => {
-      this.cars = data;
+    this.route.params.subscribe(params => {
+      this.dealerId = +params['id'];
     });
+    console.log(this.dealerId);
+    if (!this.dealerId) {
+      this.http.get('http://localhost:8080/cars').subscribe(data => {
+        this.cars = data;
+      });
+    }
+    else {
+      this.http.get('http://localhost:8080/cars/getDealerCars/' + this.dealerId).subscribe(data => {
+        this.cars = data;
+      });
+    }
   }
-
 }

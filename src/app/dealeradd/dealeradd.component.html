@@ -1,27 +1,33 @@
-<form (ngSubmit)="onSubmit()">
-  <div class=" form-row">
-    <div class="form-group col-md-6">
-      <label for="name">Name</label>
-      <input [(ngModel)]="name" type="text" class="form-control" id="name" name = "name" placeholder="name" required>
+<div class="formDiv">
+  <form (ngSubmit)="onSubmit()">
+    <div class=" form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input [(ngModel)]="name" type="text" class="form-control" id="name" name="name" placeholder="name" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="surname">Surname</label>
+        <input [(ngModel)]="surname" type="text" class="form-control" id="surname" name="surname" placeholder="Surname"
+               required>
+      </div>
     </div>
     <div class="form-group col-md-6">
-      <label for="surname">Surname</label>
-      <input [(ngModel)]="surname" type="text" class="form-control" id="surname" name = "surname" placeholder="Surname" required>
+      <label for="login">Login [cc]</label>
+      <input (blur)="checkLogin()" [(ngModel)]="login" type="text" class="form-control" id="login" name="login"
+             placeholder="Login" required>
+      <p *ngIf="!isLoginValid">Login empty or in use!</p>
+      <p *ngIf="isLoginValid">Login valid!</p>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="login">Login [cc]</label>
-    <input (blur)="checkLogin()" [(ngModel)]="login" type="text" class="form-control" id="login" name = "login" placeholder="Login" required>
-    <p *ngIf="!isLoginValid">Login empty or in use!</p>
-    <p *ngIf="isLoginValid">Login valid!</p>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input [(ngModel)]="password" type="password" class="form-control" id="password" name = "password"  placeholder="Password" required>
-  </div>
-  <div class="form-group">
-    <label for="address">Address</label>
-    <input [(ngModel)]="address" type="address" class="form-control" id="address" name = "address"  placeholder="Address" required>
-  </div>
-  <button type="submit" class="btn btn-success">Save car</button>
-</form>
+    <div class="form-group col-md-6">
+      <label for="password">Password</label>
+      <input [(ngModel)]="password" type="password" class="form-control" id="password" name="password"
+             placeholder="Password" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="address">Address</label>
+      <input [(ngModel)]="address" type="address" class="form-control" id="address" name="address" placeholder="Address"
+             required>
+    </div>
+    <button type="submit" class="btn btn-success">Save dealer</button>
+  </form>
+</div>

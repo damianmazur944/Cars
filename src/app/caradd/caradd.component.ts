@@ -25,7 +25,7 @@ export class CaraddComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/dealers', {responseType: 'text'}).subscribe(data => {
+    this.http.get('http://localhost:8080/dealers').subscribe(data => {
       this.dealers = data;
     });
   }
