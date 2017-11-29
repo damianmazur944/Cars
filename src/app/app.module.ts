@@ -8,13 +8,15 @@ import { CarListComponent } from './car-list/car-list.component';
 import {RoutingModule} from './routing/routing.module';
 import {FormsModule} from '@angular/forms';
 import { CaraddComponent } from './caradd/caradd.component';
+import { DealeraddComponent } from './dealeradd/dealeradd.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CarListComponent,
-    CaraddComponent
+    CaraddComponent,
+    DealeraddComponent
   ],
   imports: [
     BrowserModule,

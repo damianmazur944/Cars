@@ -21,3 +21,20 @@ export class Car {
   }
 }
 
+export class Dealer {
+  constructor(private name: string,
+              private surname: string,
+              private login: string,
+              private password: string,
+              private address: string,
+              private role,
+              private enable: boolean) {
+  }
+}
+  export class Role {
+  constructor(private id: number,
+              private name: string,
+              ) {
+  }
+}
+
