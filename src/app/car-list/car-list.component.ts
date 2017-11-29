@@ -21,12 +21,12 @@ export class CarListComponent implements OnInit {
     });
     console.log(this.dealerId);
     if (!this.dealerId) {
-      this.http.get('http://localhost:8080/cars').subscribe(data => {
+      this.http.get('/api/cars').subscribe(data => {
         this.cars = data;
       });
     }
     else {
-      this.http.get('http://localhost:8080/cars/getDealerCars/' + this.dealerId).subscribe(data => {
+      this.http.get('/api/cars/getDealerCars/' + this.dealerId).subscribe(data => {
         this.cars = data;
       });
     }
