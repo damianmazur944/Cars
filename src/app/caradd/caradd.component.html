@@ -40,9 +40,9 @@
   </div>
   <div class="form-group col-md-4">
     <label for="dealer">Dealer</label>
-    <select id="dealer" class="form-control" [(ngModel)]="dealerId" name="dealer">
+    <select id="dealer" class="form-control" [(ngModel)]="dealer" name="dealerValue">
       <option selected>Choose...</option>
-      <option *ngFor="let dealer of dealers" [ngValue]="dealer.id" value={{dealer.id}}>{{dealer.name}} {{dealer.surname}}</option>
+      <option *ngFor="let dealer of dealers" [ngValue]="dealer" value={{dealer.id}}>{{dealer.name}} {{dealer.surname}}</option>
     </select>
   </div>
   <button type="submit" class="btn btn-success">Save car</button>

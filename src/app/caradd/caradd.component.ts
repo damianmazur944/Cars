@@ -15,7 +15,7 @@ export class CaraddComponent implements OnInit {
 
   car: Car;
   dealers;
-  dealerId;
+  dealer;
   brand;
   model;
   displacment;
@@ -31,8 +31,10 @@ export class CaraddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.car = new Car(this.brand, this.model, this.displacment, this.engineType, this.transmissionType, this.dealerId, this.photoLink);
-    this.http.post('http://localhost:8080/dealers', this.car).subscribe((data) => {
+    this.car = new Car(this.brand, this.model, this.displacment, this.engineType, this.transmissionType, this.dealer, this.photoLink);
+    console.log(this.dealers)
+    console.log(JSON.stringify(this.dealer))
+    this.http.post('http://localhost:8080/cars', this.car).subscribe((data) => {
     });
 
   }

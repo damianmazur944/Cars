@@ -16,7 +16,7 @@ export class Car {
               private displacment: number,
               private engineType: string,
               private transmissionType: string,
-              private dealer: number,
+              private dealer,
               private photoLink: string) {
   }
 }
