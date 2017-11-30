@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Injectable()
 export class AuthService {
 
-  constructor(public _router: Router, public http: HttpClient) {
+  constructor(public _router: Router, public http: HttpClient, public location: Location) {
   }
 
   public isAuthenticated(): boolean {
@@ -24,17 +25,27 @@ export class AuthService {
       }
     })
       .subscribe(
-        data => localStorage.setItem('token', 'token'),
+        () => localStorage.setItem('token', 'token'),
         (err: HttpErrorResponse) => {
           if (!err.message.includes('error')) {
             localStorage.setItem('token', 'token');
+            this._router.navigateByUrl('/');
           }
         });
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this._router.navigate(['/sign-in']);
+    const params = new HttpParams().set('logout', '');
+    this.http.post('/api/login', params).subscribe(
+      () => {
+        localStorage.removeItem('token');
+        this._router.navigate(['/sign-in']);
+      },
+      () => {
+        localStorage.removeItem('token');
+        this._router.navigate(['/sign-in']);
+      }
+    );
   }
 
 }

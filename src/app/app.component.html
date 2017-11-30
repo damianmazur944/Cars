@@ -1,12 +1,2 @@
-<body>
-<h1>Cars and Dealers application</h1>
-<div class="navigation">
-  <a routerLink="/addCar" class="btn btn-primary">Add a car</a>
-  <a routerLink="/addDealer" class="btn btn-primary">Add a dealer</a>
-  <a routerLink="/carList" class="btn btn-primary">Display car list</a>
-  <a routerLink="/dealerList" class="btn btn-primary">Display dealer list</a>
-</div>
-<router-outlet>
-
-</router-outlet>
-</body>
+<app-home *ngIf="isAuthenticated()"></app-home>
+<router-outlet></router-outlet>

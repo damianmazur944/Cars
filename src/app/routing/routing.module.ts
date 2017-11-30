@@ -7,16 +7,17 @@ import {DealeraddComponent} from '../dealeradd/dealeradd.component';
 import {DealerlistComponent} from '../dealerlist/dealerlist.component';
 import {SignInComponent} from '../sign-in/sign-in.component';
 import {AuthGuardService} from '../auth/auth-guard.service';
+import {AppComponent} from '../app.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+  { path: '', component: AppComponent, canActivate: [AuthGuardService] },
   { path: 'sign-in', component: SignInComponent },
   { path: 'carList', component: CarListComponent, canActivate: [AuthGuardService] },
-  { path: 'carList/:id', component: CarListComponent },
-  { path: 'dealerList/showCars/:id', component: CarListComponent },
-  { path: 'addDealer', component: DealeraddComponent },
-  { path: 'addCar', component: CaraddComponent },
-  {path: 'dealerList', component: DealerlistComponent}
+  { path: 'carList/:id', component: CarListComponent, canActivate: [AuthGuardService] },
+  { path: 'dealerList/showCars/:id', component: CarListComponent, canActivate: [AuthGuardService] },
+  { path: 'addDealer', component: DealeraddComponent, canActivate: [AuthGuardService] },
+  { path: 'addCar', component: CaraddComponent, canActivate: [AuthGuardService] },
+  { path: 'dealerList', component: DealerlistComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

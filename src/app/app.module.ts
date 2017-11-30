@@ -14,7 +14,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuardService} from './auth/auth-guard.service';
 import {JwtInterceptor} from './auth/jwt.interceptor';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,15 @@ import {JwtInterceptor} from './auth/jwt.interceptor';
     CaraddComponent,
     DealeraddComponent,
     DealerlistComponent,
-    SignInComponent
+    SignInComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [
     AuthService,
