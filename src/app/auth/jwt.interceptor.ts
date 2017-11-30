@@ -8,13 +8,12 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
-import {AuthService} from './auth.service';
 import {Injectable} from '@angular/core';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor(public authService: AuthService) {
+  constructor() {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

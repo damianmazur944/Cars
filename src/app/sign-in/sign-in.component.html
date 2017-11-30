@@ -1,5 +1,5 @@
 <form (submit)="signIn()">
-  <input [(ngModel)]="login" name="login" placeholder="login" autofocus required/>
-  <input [(ngModel)]="password" name="password" placeholder="password" type="password" required/>
+  <input [(ngModel)]="loginData.username" name="username" placeholder="login" autofocus/>
+  <input [(ngModel)]="loginData.password" name="password" placeholder="password" type="password"/>
   <button>Sign in</button>
 </form>
