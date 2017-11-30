@@ -25,7 +25,7 @@ export class CaraddComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/dealers').subscribe(data => {
+    this.http.get('api/dealers').subscribe(data => {
       this.dealers = data;
     });
   }
@@ -34,7 +34,7 @@ export class CaraddComponent implements OnInit {
     this.car = new Car(this.brand, this.model, this.displacment, this.engineType, this.transmissionType, this.dealer, this.photoLink);
     console.log(this.dealers)
     console.log(JSON.stringify(this.dealer))
-    this.http.post('http://localhost:8080/cars', this.car, {responseType: 'text'}).subscribe((data) => {
+    this.http.post('api/cars', this.car, {responseType: 'text'}).subscribe((data) => {
     });
 
   }
