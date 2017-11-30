@@ -7,10 +7,8 @@ import {DealeraddComponent} from '../dealeradd/dealeradd.component';
 import {DealerlistComponent} from '../dealerlist/dealerlist.component';
 import {SignInComponent} from '../sign-in/sign-in.component';
 import {AuthGuardService} from '../auth/auth-guard.service';
-import {AppComponent} from '../app.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent, canActivate: [AuthGuardService] },
   { path: 'sign-in', component: SignInComponent },
   { path: 'carList', component: CarListComponent, canActivate: [AuthGuardService] },
   { path: 'carList/:id', component: CarListComponent, canActivate: [AuthGuardService] },
