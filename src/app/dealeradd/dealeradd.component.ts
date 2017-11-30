@@ -29,7 +29,7 @@ export class DealeraddComponent implements OnInit {
   onSubmit() {
     this.delaer = new Dealer(this.name, this.surname, this.login, this.password, this.address, this.role, true);
 
-    this.http.post('http://localhost:8080/dealers', this.delaer, {responseType: 'text'}).subscribe((data) => {
+    this.http.post('api/dealers', this.delaer, {responseType: 'text'}).subscribe((data) => {
     });
 
   }
@@ -37,7 +37,7 @@ export class DealeraddComponent implements OnInit {
   checkLogin() {
     this.isLoginValid = false;
     if (this.login.length > 0 && this.login.trim()) {
-      this.http.get('http://localhost:8080/dealers/login/' + this.login, {responseType: 'text'}).subscribe((data?) => {
+      this.http.get('api/dealers/login/' + this.login, {responseType: 'text'}).subscribe((data?) => {
           console.log('pobralem:' + data);
           if (!data) {
             this.isLoginValid = true;

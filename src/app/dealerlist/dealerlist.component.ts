@@ -13,7 +13,7 @@ export class DealerlistComponent implements OnInit {
   dealers;
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/dealers').subscribe(data => {
+    this.http.get('api/dealers').subscribe(data => {
       console.log(data)
       this.dealers = data;
     });
