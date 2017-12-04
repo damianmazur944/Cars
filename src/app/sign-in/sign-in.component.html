@@ -1,5 +1,13 @@
 <form (submit)="signIn()">
-  <input [(ngModel)]="loginData.username" name="username" placeholder="login" autofocus/>
-  <input [(ngModel)]="loginData.password" name="password" placeholder="password" type="password"/>
-  <button>Sign in</button>
+  <div class="input">
+    <label for="username">Username</label>
+    <input [(ngModel)]="loginData.username" id="username" name="username" autofocus/>
+  </div>
+  <div class="input">
+    <label for="password">Password</label>
+    <input [(ngModel)]="loginData.password" id="password" name="password" type="password"/>
+  </div>
+  <div class="input">
+    <button>Sign in</button>
+  </div>
 </form>
