@@ -7,7 +7,7 @@ import {AuthService} from '../auth/auth.service';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
-
+  loginError = '';
   public loginData = {username: '', password: ''};
 
   constructor(private authService: AuthService) {
@@ -15,5 +15,9 @@ export class SignInComponent {
 
   signIn() {
     this.authService.signIn(this.loginData);
+    this.authService.currentLoginError.subscribe(message =>{
+      this.loginError = message;
+    })
+    console.log(this.loginError);
   }
 }

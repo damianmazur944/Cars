@@ -3,10 +3,12 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {CookieService} from 'ngx-cookie-service';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthService {
-
+  loginError = new BehaviorSubject('');
+  currentLoginError = this.loginError.asObservable();
   constructor(public _router: Router, public http: HttpClient, public location: Location, public cookieService: CookieService) {
   }
 
@@ -23,7 +25,6 @@ export class AuthService {
       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8'
     }
 
-
     this.http.post('/api/login', params.toString(), {
       headers, responseType: 'text'
     })
@@ -32,12 +33,10 @@ export class AuthService {
           this.http.get('/api/security/username', {responseType: 'text'}).subscribe((user) => {
             this.cookieService.set('LoggedUser', user);
             this._router.navigateByUrl('/');
-            console.log('User: ', user);
           });
         }, (err) => {
-          if (err.status === 200) {
-            console.log(err);
-          }
+          this.loginError.next('Bad credentials, please try again.');
+          console.log(this.loginError);
         });
   }
 
